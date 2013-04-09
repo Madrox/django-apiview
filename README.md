@@ -5,7 +5,8 @@ A lightweight decorator to make it easy to create json-based API views in django
 
 ## Basic Usage
 
-```from apiview import api_view
+```python
+from apiview import api_view
 
 @api_view
 def djangoview(request):
@@ -13,10 +14,12 @@ def djangoview(request):
 
 This will produce a response with a mime type of `application/json` where the output of .
 
-```{
+```javascript
+{
 	data: "hello",
 	run_time: 0.000011
-}```
+}
+```
 
 ## Features
 
@@ -28,27 +31,33 @@ The decorator will attempt to serialize anything. If all else fails, it will res
 
 By default, a run_time property is returned with the time it took to run the view function in seconds.
 
-```from apiview import api_view
+```python
+from apiview import api_view
 
 @api_view(show_run_time=False) # DISABLE THE run_time PROPERTY
 def djangoview(request):
-	return { 'foo': 'bar' }```
+	return { 'foo': 'bar' }
+```
 
 This will produce
 
-```{
+```javascript
+{
 	data: {
 		foo: "bar"
 	}
-}```
+}
+```
 
 ### Usage Information
 
 Usage information can be passed to the decorator. This is handy if you'd like to give API users hints about how to interface with your API. If this is passed, all required fields will be checked to exist before calling the view. If any fields are missing, the usage JSON will be returned instead as a HTTP 400.
 
-```@api_view(usage={ 'name': (True, 'A required field'), 'hello': (False, 'An optional parameter to pass') })
+```python
+@api_view(usage={ 'name': (True, 'A required field'), 'hello': (False, 'An optional parameter to pass') })
 def djangoview(request):
-	return { 'foo': 'bar' }```
+	return { 'foo': 'bar' }
+```
 
 In this example, `name` is required in the query string. `hello` is optional.
 
