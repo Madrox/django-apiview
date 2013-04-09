@@ -10,7 +10,8 @@ from apiview import api_view
 
 @api_view
 def djangoview(request):
-	return 'hello'```
+	return 'hello'
+```
 
 This will produce a response with a mime type of `application/json` where the output of .
 
