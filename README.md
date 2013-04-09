@@ -8,12 +8,12 @@ A lightweight decorator to make it easy to create json-based API views in django
 ```python
 from apiview import api_view
 
-@api_view
+@api_view()
 def djangoview(request):
 	return 'hello'
 ```
 
-This will produce a response with a mime type of `application/json` where the output of .
+This will produce a response with a mime type of `application/json` with the output of
 
 ```javascript
 {
