@@ -68,5 +68,5 @@ Similar to `show_run_time`, you can have the output display the usage informatio
 
 The decorator will handle json-p requests for you by default. If a user calls an endpoint with `callback` in the query string, it will handle it appropriately and switch the mime type to `application/javascript`.
 
-To disable json-p support, pass `json=False`.
+To disable json-p support, pass `jsonp=False`.
 
